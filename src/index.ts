@@ -1,1 +1,1 @@
-export { add, subtract } from './extractor.js';
+export { default as createExtractor } from './extractor';

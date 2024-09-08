@@ -1,0 +1,1 @@
+export type SSGType = 'MdBook' | 'Docusaurus' | 'Unknown';
