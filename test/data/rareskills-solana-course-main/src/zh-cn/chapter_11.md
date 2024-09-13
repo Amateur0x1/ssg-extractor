@@ -8,14 +8,14 @@
 
 - block.timestamp
 - block.number
-- blockhash() 
+- blockhash()
 
 以及较少人知道的：
 
 - block.coinbase
 - block.basefee
 - block.chainid
-- block.difficulty / block.prevrandao 
+- block.difficulty / block.prevrandao
 
 我们假设你已经知道它们的作用，但如果需要复习，可以在 [Solidity 全局变量文档](https://docs.soliditylang.org/en/latest/units-and-global-variables.html)中找到解释。
 

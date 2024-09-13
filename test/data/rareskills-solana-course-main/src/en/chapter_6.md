@@ -80,7 +80,7 @@ To do this in Solana, we basically just assign an if-else statement to a variabl
 ```
 pub fn age_checker(ctx: Context<Initialize>,
                    age: u64) -> Result<()> {
-		
+
 	let result = if age >= 18 {"You are 18 years old or above"} else { "You are below 18 years old" };
     msg!("{:?}", result);
     Ok(())
@@ -110,7 +110,7 @@ pub fn age_checker(ctx: Context<Initialize>,
             msg!("The age is either 2 or 3");
                 },
         4..=6 => {
-            // Code block executed if age is in the 
+            // Code block executed if age is in the
 		    // range 4 to 6 (inclusive)
             msg!("The age is between 4 and 6");
                 },
@@ -142,7 +142,7 @@ pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
     for i in 0..10 {
         // do something...
     }
-        
+
     Ok(())
 }
 ```
@@ -165,10 +165,10 @@ Here is the equivalent in Solana using `step_by`:
 pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
     for i in (0..10).step_by(2) {
         // do something...
-            
+
         msg!("{}", i);
-    }     
-        
+    }
+
     Ok(())
 }
 ```
@@ -202,7 +202,7 @@ pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
 
     // Rest of your program's logic
 
-    Ok(())        
+    Ok(())
 }
 ```
 
@@ -293,7 +293,7 @@ In Solidity:
 
 ```
 contract SolidityStructs {
-    
+
     // Defining a struct in Solidity
     struct Person {
         string my_name;
@@ -388,7 +388,7 @@ pub mod usize_example {
 
        let mut dynamic_array: Vec<u32> = Vec::from([1,2,3,4,5,6]);
        let len = dynamic_array.len(); // this has type usize
-       
+
        let another_var: u64 = 5; // this has type u64
 
        let len_plus_another_var = len as u64 + another_var;

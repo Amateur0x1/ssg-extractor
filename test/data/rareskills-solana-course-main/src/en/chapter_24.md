@@ -92,7 +92,7 @@ describe("other_write", () => {
 
     let seeds = [];
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
-    
+
     await program.methods.initialize().accounts({
       myStorage: myStorage,
       signer: newKeypair.publicKey // ** THIS MUST BE EXPLICITLY SPECIFIED **
@@ -137,7 +137,7 @@ And we will get the following Error: unknown signer:
 
 ![Error: Unknown Signer](https://static.wixstatic.com/media/935a00_6cffaab9b57f4f40ad296c048769d223~mv2.png/v1/fill/w_740,h_142,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/935a00_6cffaab9b57f4f40ad296c048769d223~mv2.png)
 
-Somewhat misleadingly, Anchor isn’t saying the signer is unknown because it wasn’t specified per se. Anchor is able to figure out that if no signer is specified, then it will use the default signer. If we remove both the `.signers([newKeypair])` code *and* the `fren: newKeypair.publicKey` code, then Anchor will use the default signer for both the public key to check against, and the signature of the signer to verify it matches the public key.
+Somewhat misleadingly, Anchor isn’t saying the signer is unknown because it wasn’t specified per se. Anchor is able to figure out that if no signer is specified, then it will use the default signer. If we remove both the `.signers([newKeypair])` code _and_ the `fren: newKeypair.publicKey` code, then Anchor will use the default signer for both the public key to check against, and the signature of the signer to verify it matches the public key.
 
 The following code will result in a successful initialization because both the `Signer` public key and the account that signs the transaction are the Anchor default signer.
 
@@ -242,7 +242,7 @@ describe("other_write", () => {
 
     let seeds = [];
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
-    
+
     // ALICE INITIALIZE ACCOUNT
     await program.methods.initialize().accounts({
       myStorage: myStorage,
@@ -269,7 +269,7 @@ In real applications, we don’t want Bob writing arbitrary data to arbitrary ac
 
 Alice should be able to modify both her account and Bob’s account. That is, she should be able to deduct her points and credit Bob’s points. She should not be able to deduct Bob’s points — only Bob should be able to do that.
 
-By convention, we call an address that can make privileged  changes to an account an “authority” in Solana. It is a common pattern to store the “authority” field in the account struct to signify that only that account can conduct sensitive operations on that account (such as deducting points in our example).
+By convention, we call an address that can make privileged changes to an account an “authority” in Solana. It is a common pattern to store the “authority” field in the account struct to signify that only that account can conduct sensitive operations on that account (such as deducting points in our example).
 
 This is somewhat analogous to the [onlyOwner pattern in Solidity](https://www.rareskills.io/post/openzeppelin-ownable2step), except that instead of applying to the entire contract, it applies only to a single account:
 
@@ -297,7 +297,7 @@ pub mod points {
 								 Errors::SignerIsNotAuthority);
         require!(ctx.accounts.from.points >= amount,
                  Errors::InsufficientPoints);
-        
+
         ctx.accounts.from.points -= amount;
         ctx.accounts.to.points += amount;
         Ok(())

@@ -20,7 +20,7 @@ Rust 函数式宏通过`!`符号来识别，例如在 Solana 中的`println!(...
 
 在 Rust 中，用于打印内容的常规函数（而不是函数式宏）是`std::io::stdout().write`，它只接受一个单字节字符串作为参数。
 
-如果你想运行以下代码，[*Rust Playground*](https://play.rust-lang.org/) 是一个方便的工具，不需要设置开发环境了。
+如果你想运行以下代码，[_Rust Playground_](https://play.rust-lang.org/) 是一个方便的工具，不需要设置开发环境了。
 
 让我们使用以下示例（来自[这里](https://riptutorial.com/rust/example/1415/console-output-without-macros) ）：
 
@@ -47,7 +47,7 @@ fn main() {
 }
 ```
 
-因此，如果你希望打印任意数量的参数，*你需要编写一个自定义打印函数来处理每种情况下的每个参数数量 —— 这是极其低效的！*
+因此，如果你希望打印任意数量的参数，_你需要编写一个自定义打印函数来处理每种情况下的每个参数数量 —— 这是极其低效的！_
 
 这样的代码如下所示（这是极不推荐的！）：
 

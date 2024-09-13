@@ -196,7 +196,7 @@ pub struct Initialize {}
 
 Build the program. What happened? We got an error:
 
-❌ *error[E0624]: associated function `private_function` is private*
+❌ _error[E0624]: associated function `private_function` is private_
 
 This shows that `private_function` is not publicly accessible and can not be invoked from outside the module where it is visible. Check out [visibility and privacy](https://doc.rust-lang.org/beta/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) in Rust docs for more the `pub` visibility keyword.
 
@@ -214,7 +214,7 @@ Let’s create another file in the **src** folder called **calculate.rs** and co
 
 ```
 pub fn add(x: u64, y: u64) -> u64 {
-	// Return the sum of x and y 
+	// Return the sum of x and y
     x + y
 }
 ```

@@ -64,7 +64,7 @@ In the image below, we see the account B is owned by the program account A. We k
 
 In Ethereum, we can directly write to a storage variable that we haven’t used before. However, Solana programs need an explicit initialization transaction. That is, we have to create the account before we can write data to it.
 
-*It is possible to initialize and write to a Solana account in one transaction — however this introduces security issues which will complicate the discussion if we deal with them now. For now, it suffices to say that Solana accounts must be initialized before they can be used.*
+_It is possible to initialize and write to a Solana account in one transaction — however this introduces security issues which will complicate the discussion if we deal with them now. For now, it suffices to say that Solana accounts must be initialized before they can be used._
 
 ## A basic storage example
 
@@ -81,7 +81,7 @@ contract BasicStorage {
     function set(uint64 _x) external {
         myStorage.x = _x;
     }
-} 
+}
 ```
 
 It may seem strange that we wrapped a single variable in a struct.
@@ -122,7 +122,7 @@ pub struct Initialize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 
@@ -230,7 +230,7 @@ We will learn more about this in a following tutorial, but Solana requires us to
 
 ```
 seeds = []
-const [myStorage, _bump] = 
+const [myStorage, _bump] =
     anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
 ```
 
@@ -278,7 +278,7 @@ describe("basic_storage", () => {
   it("Is initialized!", async () => {
     const seeds = []
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
- 
+
 		// ********************************************
 		// **** NOTE THAT WE CALL INITIALIZE TWICE ****
     // ********************************************

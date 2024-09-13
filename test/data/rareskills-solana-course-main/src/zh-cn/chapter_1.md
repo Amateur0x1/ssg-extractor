@@ -156,7 +156,7 @@ solana logs
 
 在这种情况下，`initialize`的名称并没有什么特别之处，因此我们可以将名称更改为任何你喜欢的名称。这与其他一些关键字和语言不同，比如在某些语言中`main`是一个特殊的名称，或者在 Solidity 中`constructor`是一个特殊的名称。
 
-**练习：** *尝试将* *`programs/day_1/src/lib.rs`* *中的* *`initialize`* *和* *`tests/day_1.ts`* *中的* *`initialize`* *更名为* *`initialize2`* *，然后再次运行测试。请查看下面用橙色圈圈标记的更改。*
+**练习：** _尝试将_ _`programs/day_1/src/lib.rs`_ _中的_ _`initialize`_ _和_ _`tests/day_1.ts`_ _中的_ _`initialize`_ _更名为_ _`initialize2`_ _，然后再次运行测试。请查看下面用橙色圈圈标记的更改。_
 
 ![更改 initialize() 函数名称](https://static.wixstatic.com/media/935a00_cd564f43dbd94c15b15249e9083fa91b~mv2.png/v1/fill/w_740,h_201,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/935a00_cd564f43dbd94c15b15249e9083fa91b~mv2.png)
 

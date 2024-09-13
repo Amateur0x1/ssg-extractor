@@ -111,7 +111,7 @@ Events are preserved in the block explorer however. See the bottom of this trans
 
 In Ethereum, there is no direct way to query the transactions either sent to a smart contract or from a particular wallet.
 
-We can *count* the number of transactions sent from an address using [eth_getTransactionCount](https://ethereum.org/developers/docs/apis/json-rpc#eth_gettransactioncount). We can get a specific transaction using the transaction hash with [eth_getTransactionByHash](https://ethereum.org/developers/docs/apis/json-rpc#eth_gettransactionbyhash). We can get the transactions in a specific block using [eth_getBlockByNumber](https://ethereum.org/developers/docs/apis/json-rpc#eth_getblockbynumber) or [eth_getBlockByHash](https://ethereum.org/developers/docs/apis/json-rpc#eth_getblockbyhash).
+We can _count_ the number of transactions sent from an address using [eth_getTransactionCount](https://ethereum.org/developers/docs/apis/json-rpc#eth_gettransactioncount). We can get a specific transaction using the transaction hash with [eth_getTransactionByHash](https://ethereum.org/developers/docs/apis/json-rpc#eth_gettransactionbyhash). We can get the transactions in a specific block using [eth_getBlockByNumber](https://ethereum.org/developers/docs/apis/json-rpc#eth_getblockbynumber) or [eth_getBlockByHash](https://ethereum.org/developers/docs/apis/json-rpc#eth_getblockbyhash).
 
 However, there it is not possible to get all transactions by address. This has to be done indirectly by parsing every block since the wallet became active or the smart contract was deployed.
 

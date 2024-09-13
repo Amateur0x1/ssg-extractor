@@ -1,17 +1,20 @@
 {
   "name": "ssg-extractor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "test": "mocha --require ts-node/register 'test/**/*.spec.ts'"
+    "test": "mocha --require ts-node/register 'test/**/*.spec.ts'",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.3.19",
+    "@types/iarna__toml": "^2.0.0",
     "@types/mocha": "^10.0.7",
     "@types/node": "^22.5.4",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
@@ -20,8 +23,8 @@
     "eslint": "^9.10.0",
     "eslint-plugin-import": "^2.30.0",
     "mocha": "^10.7.3",
-    "ts-node": "^10.9.2",
-    "@types/iarna__toml": "^2.0.0"
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",

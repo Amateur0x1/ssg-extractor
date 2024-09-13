@@ -117,7 +117,7 @@ From the log, we can observe that the EpochSchedule sysvar contains the followin
 - **slots_per_epoch** highlighted in yellow holds the number of slots in each epoch, which is 432,000 slots here.
 - **leader_schedule_slot_offset** highlighted in red determines the timing for the next epoch's leader schedule (we had previously talked about this in day 11). It's also set to 432,000.
 - **warmup** highlighted in purple is a boolean that indicates whether Solana is in the warm-up phase. During this phase, epochs start smaller and gradually increase in size. This helps the network start smoothly after a reset or during its early days.
-- **first_normal_epoch** highlighted in orange identifies the first epoch that can have its slot count, and first_normal_slot highlighted in blue is the slot that starts this epoch. In this case both are 0 (*zero*).
+- **first_normal_epoch** highlighted in orange identifies the first epoch that can have its slot count, and first_normal_slot highlighted in blue is the slot that starts this epoch. In this case both are 0 (_zero_).
 
 The reason we see the `first_normal_epoch` and `first_normal_slot` being 0 is because the test validator hasn’t been running for two days. If we were to run this command on the mainnet (at time of writing), we would expect to see the `first_normal_epoch` being 576 and the `first_normal_slot` being 248,832,000.
 
@@ -153,7 +153,7 @@ The Rent sysvar in Solana has three key fields:
 
 - **lamports_per_byte_year**
 - **exemption_threshold**
-- **burn_percent** 
+- **burn_percent**
 
 The lamports_per_byte_year highlighted in yellow indicates the number of lamports required per byte per year for rent exemption.
 
@@ -171,7 +171,7 @@ For sysvars that don't support the get method, we can access them using their pu
 
 Recall that we previously mentioned that this sysvar keeps a record of stake activations and deactivations for the entire network on a per-epoch basis. However, since we are running a local validator node, this sysvar will return empty data.
 
-We will access this sysvar using its public address 
+We will access this sysvar using its public address
 
 **SysvarStakeHistory1111111111111111111111111**.
 
@@ -356,7 +356,7 @@ If we closely examine the log, we can see the program Id, the public key of the 
 
 We can also see the number 3 highlighted with the yellow arrow in both the serialized instruction data and our own program log. The serialized data highlighted in red is a discriminator injected by Anchor (we can ignore that).
 
-**Exercise:** Access the LastRestartSlot sysvar 
+**Exercise:** Access the LastRestartSlot sysvar
 
 **SysvarLastRestartS1ot1111111111111111111111** using the method used above. Note that Anchor does not have the address for this sysvar, so you will need to create a PublicKey object.
 

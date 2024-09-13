@@ -9,6 +9,7 @@ We will set up two programs: `data_holder` and `data_reader`.`data_holder` will 
 The following code is a basic Solana program that initializes account `Storage` with `u64` field `x` and stores the value 9 in it at initialization:
 
 Typescript code:
+
 ```
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
@@ -44,6 +45,7 @@ describe("data-holder", () => {
   });
 });
 ```
+
 The test will print out the address of the PDA, we will refer to this address shortly:
 
 ![Image 1: Terminal output of address of the PDA](https://static.wixstatic.com/media/706568_78de30cddc5c48cf851a6c6e3deb73f4~mv2.png)
@@ -93,6 +95,7 @@ Passing the type `Storage` (the same struct we defined above) here tells Solana 
 Now let’s create a separate anchor project in a new folder `anchor new data_reader`.
 
 Here is the complete Rust code:
+
 ```
 use anchor_lang::prelude::*;
 
@@ -177,15 +180,10 @@ describe("data-reader", () => {
 To test out reading another accounts’ data:
 
 1.  Run the test `data_holder` with the `solana-test-validator` running in the background.
-    
 2.  Copy and paste the printed public key of the `Storage` account
-    
 3.  Put that public key into the `otherStorageAddress` of the test for `data_reader`
-    
 4.  Run the Solana logs in another shell
-    
 5.  Run the test for `data_reader` to read the data.
-    
 
 The following should be visible in the Solana logs:
 

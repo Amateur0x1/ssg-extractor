@@ -61,7 +61,7 @@ Anchor 在后台默默地部署程序。
 
 那么“部署步骤”究竟在哪里？
 
-(*如果你仍在运行 Solana 验证器和 Solana 日志，建议你重新启动并清除两个终端*)
+(_如果你仍在运行 Solana 验证器和 Solana 日志，建议你重新启动并清除两个终端_)
 
 让我们进行通常的设置。创建一个名为 program-deploy 的新 Anchor 项目，并确保验证器和日志在其他 shell 中运行。
 
@@ -104,24 +104,24 @@ Solidity 合约中使用 delegatecall 的主要目的是通过向新实现合约
 将测试更改为以下内容：
 
 ```js
-import * as anchor from "@coral-xyz/anchor";
-import { Program } from "@coral-xyz/anchor";
+import * as anchor from '@coral-xyz/anchor';
+import { Program } from '@coral-xyz/anchor';
 
-import fs from 'fs'
-let idl = JSON.parse(fs.readFileSync('target/idl/deployed.json', 'utf-8'))
+import fs from 'fs';
+let idl = JSON.parse(fs.readFileSync('target/idl/deployed.json', 'utf-8'));
 
-describe("deployed", () => {
+describe('deployed', () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.AnchorProvider.env());
 
   // Change this to be your programID
-  const programID = "6p29sM4hEK8ZFT5AvsGJQG5nKUtHBKs13iVL6juo5Uqj";
+  const programID = '6p29sM4hEK8ZFT5AvsGJQG5nKUtHBKs13iVL6juo5Uqj';
   const program = new Program(idl, programID, anchor.getProvider());
 
-  it("Is initialized!", async () => {
+  it('Is initialized!', async () => {
     // Add your test here.
     const tx = await program.methods.initialize().rpc();
-    console.log("Your transaction signature", tx);
+    console.log('Your transaction signature', tx);
   });
 });
 ```

@@ -231,7 +231,7 @@ describe("batch", () => {
 });
 ```
 
-我们还需要修改我们的 Rust 代码，***不***在`set`操作上强制失败。
+我们还需要修改我们的 Rust 代码，**_不_**在`set`操作上强制失败。
 
 ```
 use anchor_lang::prelude::*;

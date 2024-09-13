@@ -16,7 +16,7 @@ Before we get into keypair accounts, let’s review how we’ve been creating ac
 
 ```
 use anchor_lang::prelude::*;
-use std::mem::size_of; 
+use std::mem::size_of;
 
 declare_id!("4wLnxvLwgXGT4eNg3D456K6Fxa1RieaUdERSPQ3WEpuV");
 
@@ -82,8 +82,6 @@ All of this should be familiar so far, except that we explicitly called our acco
 An account is a Program Derived Address (PDA) if the address of the account is derived from the address of the program, i.e. the `programId` in `findProgramAddressSync(seeds, program.programId)`. It is also a function of the `seeds`.
 
 Specifically, we know it is a PDA because the `seeds` and `bump` are present in the `init` macro.
-
-  
 
 ## Keypair Account
 
@@ -154,7 +152,7 @@ describe("keypair_vs_pda", () => {
   const program = anchor.workspace.KeypairVsPda as Program<KeypairVsPda>;
 
   it("Is initialized -- keypair version", async () => {
-		
+
     const newKeypair = anchor.web3.Keypair.generate();
     await airdropSol(newKeypair.publicKey, 1e9); // 1 SOL
 
@@ -213,7 +211,7 @@ To see this, consider the following unit test:
 - Airdrop sol to the keypair account
 - Transfer sol from the keypair account to another address (succeeds)
 - Initialize the keypair account
-- Try to transfer sol from the keypair account using the keypair as the signer (fails) 
+- Try to transfer sol from the keypair account using the keypair as the signer (fails)
 
 The code is shown below:
 
@@ -263,7 +261,7 @@ describe("keypair_vs_pda", () => {
       }),
     );
     await anchor.web3.sendAndConfirmTransaction(anchor.getProvider().connection, transaction, [newKeypair]);
-    console.log('sent 1 lamport') 
+    console.log('sent 1 lamport')
 
     await program.methods.initializeKeypairAccount()
       .accounts({myKeypairAccount: newKeypair.publicKey})
@@ -328,7 +326,7 @@ describe("keypair_vs_pda", () => {
   const program = anchor.workspace.KeypairVsPda as Program<KeypairVsPda>;
   it("Console log account owner", async () => {
 
-    console.log(`The program address is ${program.programId}`) 
+    console.log(`The program address is ${program.programId}`)
     const newKeypair = anchor.web3.Keypair.generate();
     var recieverWallet = anchor.web3.Keypair.generate();
 

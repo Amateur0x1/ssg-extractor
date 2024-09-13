@@ -61,7 +61,7 @@ In an Ethereum smart contract, a constructor can configure storage or set byteco
 
 So where exactly is the “deployment step”?
 
-(*If you are still running the Solana validator and Solana logs, we recommend you restart and clear both terminals)*
+(_If you are still running the Solana validator and Solana logs, we recommend you restart and clear both terminals)_
 
 Let’s do the usual setup. Create a new Anchor project called program-deploy, and make sure the validator and logs are running in other shells.
 
@@ -79,7 +79,7 @@ Now here’s the interesting part. Run `anchor deploy` again:
 
 ![solana upgrade instead of deploy](https://static.wixstatic.com/media/935a00_95bc7ab0a8de400aac1f11e47471b748~mv2.png/v1/fill/w_740,h_148,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/935a00_95bc7ab0a8de400aac1f11e47471b748~mv2.png)
 
-The program was deployed to the same address, but this time it was *upgraded*, not deployed.
+The program was deployed to the same address, but this time it was _upgraded_, not deployed.
 
 The program id has not changed, **the program got overwritten.**
 

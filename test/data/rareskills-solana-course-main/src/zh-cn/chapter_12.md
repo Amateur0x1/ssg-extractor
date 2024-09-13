@@ -153,7 +153,7 @@ Solana 中的 Rent sysvar 具有三个关键字段：
 
 - **lamports_per_byte_year**
 - **exemption_threshold**
-- **burn_percent** 
+- **burn_percent**
 
 黄色突出显示的 lamports_per_byte_year 指示每年每字节所需的 lamports 数量，以获得租金豁免。
 
@@ -355,7 +355,7 @@ describe("sysvars", () => {
 
 我们还可以在序列化指令数据和我们自己的程序日志中看到用黄色箭头突出显示的数字 3。红色突出显示的序列化数据是 Anchor 注入的一个鉴别器（我们可以忽略它）。
 
-**练习：** 访问`LastRestartSlot` 系统变量 
+**练习：** 访问`LastRestartSlot` 系统变量
 
 **SysvarLastRestartS1ot1111111111111111111111** 使用上述方法。请注意，Anchor 没有这个系统变量的地址，因此你需要创建一个`PublicKey`对象。
 

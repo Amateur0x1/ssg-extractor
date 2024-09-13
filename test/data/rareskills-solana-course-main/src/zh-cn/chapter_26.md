@@ -6,9 +6,9 @@
 
 以下是 Solana 中账户所有权的摘要：
 
-1) `系统程序` 拥有尚未分配所有权给程序（已初始化）的钱包和密钥对账户。
-2) BPFLoader 拥有程序。
-3) 程序拥有 [Solana PDA](https://www.rareskills.io/post/solana-pda)。如果所有权已转移给程序，则它也可以拥有密钥对账户（这是在初始化期间发生的事情）。
+1. `系统程序` 拥有尚未分配所有权给程序（已初始化）的钱包和密钥对账户。
+2. BPFLoader 拥有程序。
+3. 程序拥有 [Solana PDA](https://www.rareskills.io/post/solana-pda)。如果所有权已转移给程序，则它也可以拥有密钥对账户（这是在初始化期间发生的事情）。
 
 现在我们来研究这些事实的影响。
 
@@ -115,7 +115,7 @@ describe("owner", () => {
   const program = anchor.workspace.Owner as Program<Owner>;
 
   it("Is initialized!", async () => {
-    console.log("program address", program.programId.toBase58());    
+    console.log("program address", program.programId.toBase58());
     const seeds = []
     const [pda, bump_] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
 
@@ -134,10 +134,10 @@ describe("owner", () => {
                 await anchor.getProvider().connection.getAccountInfo(keypair.publicKey));
 
     await airdropSol(keypair.publicKey, 1); // 1 SOL
-   
+
     console.log("owner of keypair after airdrop:",
                 (await anchor.getProvider().connection.getAccountInfo(keypair.publicKey)).owner.toBase58());
-    
+
     await program.methods.initializeKeypair()
       .accounts({keypair: keypair.publicKey})
       .signers([keypair]) // the signer must be the keypair
@@ -145,18 +145,18 @@ describe("owner", () => {
 
     console.log("owner of keypair after initialize:",
                 (await anchor.getProvider().connection.getAccountInfo(keypair.publicKey)).owner.toBase58());
- 
+
   });
 });
 ```
 
 测试的工作方式如下：
 
-1) 预测 PDA 的地址并查询所有者。得到 `null`。
-2) 调用 `initializePDA` 然后查询所有者。得到程序的地址。
-3) 生成一个密钥对账户并查询所有者。得到 `null`。
-4) 向密钥对账户空投 SOL。现在所有者是系统程序，就像一个普通的钱包一样。
-5) 调用 `initializeKeypair` 然后查询所有者。得到程序的地址。
+1. 预测 PDA 的地址并查询所有者。得到 `null`。
+2. 调用 `initializePDA` 然后查询所有者。得到程序的地址。
+3. 生成一个密钥对账户并查询所有者。得到 `null`。
+4. 向密钥对账户空投 SOL。现在所有者是系统程序，就像一个普通的钱包一样。
+5. 调用 `initializeKeypair` 然后查询所有者。得到程序的地址。
 
 测试结果截图如下：
 
@@ -202,7 +202,7 @@ pub mod change_owner {
 
     pub fn change_owner(ctx: Context<ChangeOwner>) -> Result<()> {
         let account_info = &mut ctx.accounts.my_storage.to_account_info();
-        
+
 				// assign is the function to transfer ownership
 				account_info.assign(&system_program::ID);
 
@@ -232,7 +232,7 @@ pub struct Initialize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 
@@ -276,7 +276,7 @@ describe("change_owner", () => {
 
     await program.methods.initialize().accounts({myStorage: myStorage}).rpc();
     await program.methods.changeOwner().accounts({myStorage: myStorage}).rpc();
-    
+
 		// after the ownership has been transferred
 		// the account can still be initialized again
 		await program.methods.initialize().accounts({myStorage: myStorage}).rpc();

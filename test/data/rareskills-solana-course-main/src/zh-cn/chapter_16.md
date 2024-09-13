@@ -64,7 +64,7 @@ Solana 的模型类似：它是一个庞大的键值存储，其中“键”是�
 
 在以太坊中，我们可以直接写入一个之前未使用过的存储变量。然而，在 Solana 中，程序需要一个显式的初始化事务。也就是说，我们必须在写入数据之前创建账户。
 
-*可以在一个事务中初始化并写入 Solana 账户 —— 但这会引入安全问题，如果我们现在处理这些问题将会时讨论复杂化。目前，只需说 Solana 账户必须在使用之前进行初始化即可。*
+_可以在一个事务中初始化并写入 Solana 账户 —— 但这会引入安全问题，如果我们现在处理这些问题将会时讨论复杂化。目前，只需说 Solana 账户必须在使用之前进行初始化即可。_
 
 ## 一个基本的存储示例
 
@@ -81,7 +81,7 @@ contract BasicStorage {
     function set(uint64 _x) external {
         myStorage.x = _x;
     }
-} 
+}
 ```
 
 可能会觉得奇怪，我们将一个单变量放入一个结构体中。
@@ -122,7 +122,7 @@ pub struct Initialize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 
@@ -230,7 +230,7 @@ describe("basic_storage", () => {
 
 ```
 seeds = []
-const [myStorage, _bump] = 
+const [myStorage, _bump] =
     anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
 ```
 
@@ -278,7 +278,7 @@ describe("basic_storage", () => {
   it("Is initialized!", async () => {
     const seeds = []
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
- 
+
 		// ********************************************
 		// **** NOTE THAT WE CALL INITIALIZE TWICE ****
     // ********************************************

@@ -8,14 +8,14 @@ Today we will cover the analogs of all the block variables from Solidity. Not al
 
 - block.timestamp
 - block.number
-- blockhash() 
+- blockhash()
 
 And the lesser known ones:
 
 - block.coinbase
 - block.basefee
 - block.chainid
-- block.difficulty / block.prevrandao 
+- block.difficulty / block.prevrandao
 
 We assume you already know what they do, but they are explained in the [Solidity global variables doc](https://docs.soliditylang.org/en/latest/units-and-global-variables.html) if you need a refresher.
 

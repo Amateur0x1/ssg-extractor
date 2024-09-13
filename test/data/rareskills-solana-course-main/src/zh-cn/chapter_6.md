@@ -54,10 +54,10 @@ pub fn age_checker(ctx: Context<Initialize>,
 为了测试，在 ./tests/tryrust.ts 中添加另一个 it 代码块：
 
 ```js
-it("Age checker", async () => {
-    // Add your test here.
-    const tx = await program.methods.ageChecker(new anchor.BN(35)).rpc();
-    console.log("Your transaction signature", tx);
+it('Age checker', async () => {
+  // Add your test here.
+  const tx = await program.methods.ageChecker(new anchor.BN(35)).rpc();
+  console.log('Your transaction signature', tx);
 });
 ```
 
@@ -274,10 +274,10 @@ my_map 变量也被声明为可变的，以便我们可以编辑它（即添加/
 由于 initialize 函数接收两个参数，测试也需要更新：
 
 ```js
-it("Is initialized!", async () => {
-    // Add your test here.
-    const tx = await program.methods.initialize("name", "Bob").rpc();
-    console.log("Your transaction signature", tx);
+it('Is initialized!', async () => {
+  // Add your test here.
+  const tx = await program.methods.initialize('name', 'Bob').rpc();
+  console.log('Your transaction signature', tx);
 });
 ```
 

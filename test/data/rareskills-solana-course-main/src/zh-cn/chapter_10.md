@@ -196,7 +196,7 @@ pub struct Initialize {}
 
 构建程序。发生了什么？我们收到了一个错误：
 
-❌ *error[E0624]: associated function `private_function` is private*
+❌ _error[E0624]: associated function `private_function` is private_
 
 这表明`private_function`不是公开可访问的，不能从其可见的模块之外调用。查看 [Rust 文档中关于`pub`可见性关键字的内容](https://doc.rust-lang.org/beta/reference/visibility-and-privacy.html#pubin-path-pubcrate-pubsuper-and-pubself) 。
 

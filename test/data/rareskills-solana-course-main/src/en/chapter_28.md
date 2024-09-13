@@ -231,7 +231,7 @@ describe("batch", () => {
 });
 ```
 
-We also need to modify our Rust code to ***not*** forcibly fail on the `set` operation.
+We also need to modify our Rust code to **_not_** forcibly fail on the `set` operation.
 
 ```
 use anchor_lang::prelude::*;

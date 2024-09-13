@@ -31,7 +31,7 @@ pub fn main() {
 	let a: u32 = 2;
 	let b: u32 = 3;
 	println!("{}", add(a, b)); // a and b a are copied to the add function
-	
+
 	let s1 = String::from("hello");
 	let s2 = String::from(" world");
 
@@ -44,13 +44,13 @@ pub fn main() {
 // this code does not compile
 ```
 
-In the first section of code where `a` and `b` are added, only 64 bits of data need to be copied from the variables to the function (32 bits * 2 variables).
+In the first section of code where `a` and `b` are added, only 64 bits of data need to be copied from the variables to the function (32 bits \* 2 variables).
 
-However in the case of the string, *we don’t always know in advance how much data we are copying*. If the string was 1 GB long, the program would lag significantly.
+However in the case of the string, _we don’t always know in advance how much data we are copying_. If the string was 1 GB long, the program would lag significantly.
 
 Rust wants us to be explicit about how we want large data to be handled. It will not copy it behind the scenes like how dynamic languages do.
 
-Therefore, when we do something as simple as *assigning a string to a new variable* Rust will do something many find to be unexpected as we will see in the next section.
+Therefore, when we do something as simple as _assigning a string to a new variable_ Rust will do something many find to be unexpected as we will see in the next section.
 
 ## Ownership in Rust
 
@@ -81,9 +81,9 @@ In the code below, note the important `&` prepending `s1`:
 ```
 pub fn main() {
 	let s1 = String::from("abc");
-	
+
 	let s2 = &s1; // s2 can now view `String::from("abc")` but not own it
-	
+
 	println!("{}", s1); // This compiles, s1 still holds its original string value.
 	println!("{}", s2); // This compiles, s2 holds a reference to the string value in s1.
 }
@@ -192,7 +192,7 @@ pub fn main() {
 
 ## Generics in Rust: the < > syntax
 
-Let’s consider a function that takes a value with an *arbitrary type* and returns a struct with a field `foo` containing that value. Rather than writing a bunch of functions for every possible type, we can use a *generic*.
+Let’s consider a function that takes a value with an _arbitrary type_ and returns a struct with a field `foo` containing that value. Rather than writing a bunch of functions for every possible type, we can use a _generic_.
 
 The example struct below can be an `i32` or a `bool`.
 
@@ -206,7 +206,7 @@ struct MyValues<T> {
 pub fn main() {
     let first_struct: MyValues<i32> = MyValues { foo: 1 }; // foo has type i32
     let second_struct: MyValues<bool> = MyValues { foo: false }; // foo has type bool
-    
+
     println!("{:?}", first_struct);
     println!("{:?}", second_struct);
 }
@@ -225,7 +225,7 @@ struct MyValues<T, U> {
 
 Generics is a very large topic in Rust, so by no means are we giving a complete treatment here. However, this is sufficient to get a decent understanding of most Solana programs.
 
-## Options, Enums, and Deref *
+## Options, Enums, and Deref \*
 
 To show the importance of options and enums, let's consider the following example:
 
@@ -262,7 +262,7 @@ fn main() {
 }
 ```
 
-### The deref * operator
+### The deref \* operator
 
 But it still doesn't work! This time we get an error
 
@@ -271,9 +271,9 @@ But it still doesn't work! This time we get an error
    |                                     ^^ no implementation for `&{integer} == {integer}`
 ```
 
-The term on the left hand side of the equality is a *view* (i.e. &) of an integer and the term on the right is an actual integer.
+The term on the left hand side of the equality is a _view_ (i.e. &) of an integer and the term on the right is an actual integer.
 
-To convert a “view” of an integer to a regular integer, we need to use the "dereference" operation. This is when we prepend the value with a * operator.
+To convert a “view” of an integer to a regular integer, we need to use the "dereference" operation. This is when we prepend the value with a \* operator.
 
 ```
 fn main() {
@@ -285,9 +285,9 @@ fn main() {
 
 Because the elements of the array are copy types, the deref operator will silently copy the 5 returned by max().unwrap().
 
-You can think of * as "undoing" a & without disturbing the original value.
+You can think of \* as "undoing" a & without disturbing the original value.
 
-Using the  *operator on non-copy types is a complicated subject. For now, all you need to know is that if you receive a view (borrow) of a copy type and need to turn it into the “normal” type, use the ** operator.
+Using the \*operator on non-copy types is a complicated subject. For now, all you need to know is that if you receive a view (borrow) of a copy type and need to turn it into the “normal” type, use the \*\* operator.
 
 ## Result vs Option in Rust
 

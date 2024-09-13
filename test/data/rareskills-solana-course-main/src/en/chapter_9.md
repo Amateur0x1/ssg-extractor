@@ -50,7 +50,7 @@ impl Person {
 		fn age_in_one_year(&self) -> u8 {
 			return &self.age + 1;
 		}
-} 
+}
 
 fn main() {
     // Usage: Create a new `Person` instance with a name and age
@@ -132,7 +132,7 @@ fn main() {
 
 ## How macros can modify structs
 
-In our tutorial on function-like macros, we saw how macros can expand code like println!(...) and msg!(...) in large Rust code. The other kind of macros we care about in the context of Solana is the *attribute-like* macro and the *derive* macro. We can see all three (function-like, attribute-like, and derive) macros in the starter program anchor creates:
+In our tutorial on function-like macros, we saw how macros can expand code like println!(...) and msg!(...) in large Rust code. The other kind of macros we care about in the context of Solana is the _attribute-like_ macro and the _derive_ macro. We can see all three (function-like, attribute-like, and derive) macros in the starter program anchor creates:
 
 ![img](https://static.wixstatic.com/media/935a00_7626044154134115afa260e9896b370d~mv2.png/v1/fill/w_740,h_310,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/935a00_7626044154134115afa260e9896b370d~mv2.png)
 
@@ -151,7 +151,7 @@ To gain a better understanding of how Rust attributes and macros work, we will c
 First we create a new Rust project:
 
 ```
-cargo new macro-demo --lib 
+cargo new macro-demo --lib
 cd macro-demo
 touch src/main.rs
 ```
@@ -204,7 +204,7 @@ fn main() {
 
 Some observations:
 
-- The struct MyStruct does *not* have the fields `foo` in it.
+- The struct MyStruct does _not_ have the fields `foo` in it.
 - The function `double_foo` is not defined anywhere in the code above, it is assumed to exist.
 
 Now let’s create the attribute-like macro which will modify the MyStruct behind the scenes.
@@ -327,7 +327,7 @@ It may seem odd, because the struct clearly has those fields. However, the attri
 
 ## The `#[derive(…)]` macro
 
-The `#[derive(…)]` macro is much less powerful than the attribute-like macro. For our purposes, a derive macro *augments* a struct, it does not alter it. (This is not a precise definition, but it is sufficient for now).
+The `#[derive(…)]` macro is much less powerful than the attribute-like macro. For our purposes, a derive macro _augments_ a struct, it does not alter it. (This is not a precise definition, but it is sufficient for now).
 
 A derive macro can, among other things, attach an `impl` to a struct.
 
@@ -390,7 +390,7 @@ The struct Initialize {} is augmented with additional functionality to be used i
 
 ## Summary
 
-Macros a very large topic. Our intent here is to give you a sense of what is happening when you see `#[program]` or `#[derive(Accounts)]`. Don’t be discouraged if it feels foreign. **You do not need to be able to write macros to write Solana programs**. 
+Macros a very large topic. Our intent here is to give you a sense of what is happening when you see `#[program]` or `#[derive(Accounts)]`. Don’t be discouraged if it feels foreign. **You do not need to be able to write macros to write Solana programs**.
 
 Having an idea of what they do however will hopefully make the programs you see less mysterious.
 

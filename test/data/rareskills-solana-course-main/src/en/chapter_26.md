@@ -6,9 +6,9 @@ The owner of an account in Solana is able to reduce the SOL balance, write data 
 
 Here is the summary of account ownership in Solana:
 
-1) The `system program` owns wallets and keypair accounts that haven’t been assigned ownership to a program (initialized).
-2) The BPFLoader owns programs.
-3) A program owns [Solana PDA](https://www.rareskills.io/post/solana-pda)s. It can also own keypair accounts if ownership has been transferred to the program (this is what happens during initialization).
+1. The `system program` owns wallets and keypair accounts that haven’t been assigned ownership to a program (initialized).
+2. The BPFLoader owns programs.
+3. A program owns [Solana PDA](https://www.rareskills.io/post/solana-pda)s. It can also own keypair accounts if ownership has been transferred to the program (this is what happens during initialization).
 
 We now examine the implications of these facts.
 
@@ -115,7 +115,7 @@ describe("owner", () => {
   const program = anchor.workspace.Owner as Program<Owner>;
 
   it("Is initialized!", async () => {
-    console.log("program address", program.programId.toBase58());    
+    console.log("program address", program.programId.toBase58());
     const seeds = []
     const [pda, bump_] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
 
@@ -134,10 +134,10 @@ describe("owner", () => {
                 await anchor.getProvider().connection.getAccountInfo(keypair.publicKey));
 
     await airdropSol(keypair.publicKey, 1); // 1 SOL
-   
+
     console.log("owner of keypair after airdrop:",
                 (await anchor.getProvider().connection.getAccountInfo(keypair.publicKey)).owner.toBase58());
-    
+
     await program.methods.initializeKeypair()
       .accounts({keypair: keypair.publicKey})
       .signers([keypair]) // the signer must be the keypair
@@ -145,18 +145,18 @@ describe("owner", () => {
 
     console.log("owner of keypair after initialize:",
                 (await anchor.getProvider().connection.getAccountInfo(keypair.publicKey)).owner.toBase58());
- 
+
   });
 });
 ```
 
 The tests works as follows:
 
-1) It predicts the address of the PDA and queries the owner. It gets `null`.
-2) It calls `initializePDA` then queries the owner. It gets the address of the program.
-3) It generates a keypair account and queries the owner. It gets null.
-4) It airdrops SOL to the keypair account. Now the owner is the system program, just like a normal wallet.
-5) It calls `initializeKeypair` then queries the owner. It gets the address of the program.
+1. It predicts the address of the PDA and queries the owner. It gets `null`.
+2. It calls `initializePDA` then queries the owner. It gets the address of the program.
+3. It generates a keypair account and queries the owner. It gets null.
+4. It airdrops SOL to the keypair account. Now the owner is the system program, just like a normal wallet.
+5. It calls `initializeKeypair` then queries the owner. It gets the address of the program.
 
 The test result screenshot is below:
 
@@ -202,7 +202,7 @@ pub mod change_owner {
 
     pub fn change_owner(ctx: Context<ChangeOwner>) -> Result<()> {
         let account_info = &mut ctx.accounts.my_storage.to_account_info();
-        
+
 				// assign is the function to transfer ownership
 				account_info.assign(&system_program::ID);
 
@@ -232,7 +232,7 @@ pub struct Initialize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 
@@ -276,7 +276,7 @@ describe("change_owner", () => {
 
     await program.methods.initialize().accounts({myStorage: myStorage}).rpc();
     await program.methods.changeOwner().accounts({myStorage: myStorage}).rpc();
-    
+
 		// after the ownership has been transferred
 		// the account can still be initialized again
 		await program.methods.initialize().accounts({myStorage: myStorage}).rpc();

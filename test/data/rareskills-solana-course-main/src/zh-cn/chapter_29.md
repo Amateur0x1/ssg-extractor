@@ -8,7 +8,7 @@ Solana 的新手经常对“owner（所有者）”和“authority（权限）�
 
 只有程序才能向账户写入数据 — 具体来说，只能写入它们拥有的账户。程序不能向任意账户写入数据。
 
-当然，程序不能自发地向账户写入数据。它们需要从钱包接收指令才能这样做。然而，通常情况下，程序只会接受来自特定钱包的写入指令：*authority*。
+当然，程序不能自发地向账户写入数据。它们需要从钱包接收指令才能这样做。然而，通常情况下，程序只会接受来自特定钱包的写入指令：_authority_。
 
 账户的 owner 是一个程序。authority 是一个钱包。authority 向程序发送交易，而该程序可以向账户写入数据。
 
@@ -20,7 +20,6 @@ Solana 的新手经常对“owner（所有者）”和“authority（权限）�
 - executable (a boolean flag)
 - rent_epoch (can be ignored for rent-exempt accounts)
 - data
-
 
 我们可以通过在终端中运行 `solana account <钱包地址>` 来查看这些字段（在后台运行 Solana 验证器）：
 
@@ -63,11 +62,11 @@ console.log(`storage account: ${myStorage.toBase58()}`);
 
 ## Solana 中的 owner 与 Solidity 中的 owner 非常不同
 
-在 Solidity 中，我们通常将 owner 称为具有智能合约管理权限的特殊地址。“owner”不是以太坊运行时级别存在的概念，而是应用于 Solidity 合约的设计模式。Solana 中的 owner 更为基础。在以太坊中，智能合约只能写入自己的存储槽。想象一下，如果我们有一种机制允许以太坊智能合约能够写入其他一些存储槽。在 Solana 术语中，它将成为这些存储槽的 *owner*。
+在 Solidity 中，我们通常将 owner 称为具有智能合约管理权限的特殊地址。“owner”不是以太坊运行时级别存在的概念，而是应用于 Solidity 合约的设计模式。Solana 中的 owner 更为基础。在以太坊中，智能合约只能写入自己的存储槽。想象一下，如果我们有一种机制允许以太坊智能合约能够写入其他一些存储槽。在 Solana 术语中，它将成为这些存储槽的 _owner_。
 
 ## authority 可以表示部署合约的账户和可以为特定账户发送写入交易的账户
 
-*authority* 可以是程序级别的构造。在我们的 [Anchor 签名者教程](https://www.rareskills.io/post/anchor-signer)中，我们创建了一个程序，Alice 可以从她的账户中扣除积分并转移给其他人。为了确保只有 Alice 可以为该账户发送扣除交易，我们将她的地址存储在账户中：
+_authority_ 可以是程序级别的构造。在我们的 [Anchor 签名者教程](https://www.rareskills.io/post/anchor-signer)中，我们创建了一个程序，Alice 可以从她的账户中扣除积分并转移给其他人。为了确保只有 Alice 可以为该账户发送扣除交易，我们将她的地址存储在账户中：
 
 ```
 #[account]

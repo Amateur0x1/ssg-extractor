@@ -217,7 +217,7 @@ Of course, your program might not necessarily have the mechanism to transfer the
 
 In our counter example with `init_if_needed`, the counter is never equal to zero because the first initialization transaction also increments the value from zero to one.
 
-If we *also* had a regular initialization function that did not increment the counter, then the counter would be initialized and have a value of zero. If some business logic never expects to see a counter with a value of zero, then unexpected behavior may happen.
+If we _also_ had a regular initialization function that did not increment the counter, then the counter would be initialized and have a value of zero. If some business logic never expects to see a counter with a value of zero, then unexpected behavior may happen.
 
 **In Ethereum, storage values for variables that have never been “touched” have a default value of zero. In Solana, accounts that have not been initialized do not hold zero-value variables — they don’t exist and cannot be read**.
 

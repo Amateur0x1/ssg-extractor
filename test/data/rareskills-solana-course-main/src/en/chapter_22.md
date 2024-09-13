@@ -11,13 +11,13 @@ A Solana transaction must specify in advance the accounts it will modify or read
 A “view” function in Solidity creates a guarantee that the state will not change using two mechanisms:
 
 - All external calls in a view function are [staticcalls](https://www.rareskills.io/post/solidity-staticcall) (calls that revert if a state change happens)
-- If the compiler detects state-changing opcodes, it throws an error 
+- If the compiler detects state-changing opcodes, it throws an error
 
 A pure function takes this even further by the compiler checking if there are opcodes that view the state.
 
 These function restrictions happen mostly at the compiler level, and Anchor does not implement any of these compiler checks. Anchor is not the only framework for building Solana programs. [Seahorse](https://seahorse-lang.org/) is another one. Perhaps some other framework will come along with function annotations explicitly stating what functions can and cannot do, but for now we can rely on the following guarantee: if an account is not included in the Context struct definition, that function won’t access that account.
 
-This does *not* mean that the account cannot be accessed at all. For example, we could craft a separate program to read in an account and somehow forward that data to the function in question.
+This does _not_ mean that the account cannot be accessed at all. For example, we could craft a separate program to read in an account and somehow forward that data to the function in question.
 
 Finally, there is no such thing as a `staticcall` in the Solana virtual machine or runtime.
 

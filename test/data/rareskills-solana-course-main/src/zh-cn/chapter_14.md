@@ -137,7 +137,7 @@ describe("Day14", () => {
 
 ### 生成随机地址以进行测试
 
-第二个变化是`myKeypair`变量，它存储了由`anchor.web3`模块随机生成的 Keypair（*用于访问账户的公钥和相应的私钥*）。在测试中，我们将 Keypair（存储在`myKeypair`变量中的）的公钥分配给`signer2`账户，这就是为什么它作为参数传递给`.signers([myKeypair])`方法。
+第二个变化是`myKeypair`变量，它存储了由`anchor.web3`模块随机生成的 Keypair（_用于访问账户的公钥和相应的私钥_）。在测试中，我们将 Keypair（存储在`myKeypair`变量中的）的公钥分配给`signer2`账户，这就是为什么它作为参数传递给`.signers([myKeypair])`方法。
 
 多次运行测试，你会注意到`signer1`的公钥不会改变，但`signer2`的公钥会改变。这是因为分配给`signer1`账户（在测试中）的钱包账户来自提供程序，这也是你本地机器上的 Solana 钱包账户，而分配给`signer2`的账户每次运行`anchor test --skip-local-validator`时都会随机生成。
 

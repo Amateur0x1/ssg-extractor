@@ -5,7 +5,7 @@
 我们之前已经做过 CPI，当我们发送一个[转账 SOL 交易到系统程序](./chapter_23.md)时。以下是相关代码片段以作提醒：
 
 ```
-pub fn send_sol(ctx: Context<SendSol>, amount: u64) -> Result<()> {  
+pub fn send_sol(ctx: Context<SendSol>, amount: u64) -> Result<()> {
     let cpi_context = CpiContext::new(
         ctx.accounts.system_program.to_account_info(),
         system_program::Transfer {
@@ -61,7 +61,7 @@ pub mod bob {
 
     pub fn add_and_store(ctx: Context<BobAddOp>, a: u64, b: u64) -> Result<()> {
         let result = a + b;
-                        
+
         // MODIFY/UPDATE THE DATA ACCOUNT
         ctx.accounts.bob_data_account.result = result;
         Ok(())
@@ -74,7 +74,7 @@ pub struct BobData {
 }
 
 #[derive(Accounts)]
-pub struct BobAddOp<'info> {   
+pub struct BobAddOp<'info> {
     #[account(mut)]
     pub bob_data_account: Account<'info, BobData>,
 }
@@ -114,7 +114,7 @@ Anchor 在后台做了大量工作。Alice 现在可以访问 Bob 的公共函�
 
 ```
 use anchor_lang::prelude::*;
-// account struct for 
+// account struct for
 add_and_storeuse bob::cpi::accounts::BobAddOp;
 
 // The program definition for Bob
@@ -169,12 +169,9 @@ pub struct AliceOp<'info> {
 
 要进行 CPI，需要以下内容：
 
-*   目标程序的引用（作为 `AccountInfo`）（红框）
-    
-*   目标程序运行所需的账户列表（包含所有账户的 `ctx` 结构体）（绿框）
-    
-*   传递给函数的参数（橙框）
-    
+- 目标程序的引用（作为 `AccountInfo`）（红框）
+- 目标程序运行所需的账户列表（包含所有账户的 `ctx` 结构体）（绿框）
+- 传递给函数的参数（橙框）
 
 ## 测试 CPI
 

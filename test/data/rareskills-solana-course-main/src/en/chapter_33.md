@@ -32,7 +32,6 @@ This tutorial only focuses on how to call another Solana program that was built 
 
 In our running example, the `Alice` program will call a function on the `Bob` program.
 
-
 ## The Bob program
 
 We start by creating a new project using Anchor’s CLI:
@@ -115,7 +114,7 @@ Below we show the `Alice` program. At the top, the Alice program is importing 
 
 ```
 use anchor_lang::prelude::*;
-// account struct for 
+// account struct for
 add_and_storeuse bob::cpi::accounts::BobAddOp;
 
 // The program definition for Bob
@@ -170,12 +169,9 @@ If we compare `ask_bob_to_add` to the code snippet at the top of this article 
 
 To make a CPI, the following are required:
 
-*   A reference to the target program (as an `AccountInfo`) (red box)
-    
-*   The list of accounts needed by the function on the target program to run (the `ctx` struct which contains all the accounts) (green box)
-    
-*   The arguments to pass to the function (orange box)
-    
+- A reference to the target program (as an `AccountInfo`) (red box)
+- The list of accounts needed by the function on the target program to run (the `ctx` struct which contains all the accounts) (green box)
+- The arguments to pass to the function (orange box)
 
 ## Testing the CPI
 
@@ -230,7 +226,6 @@ describe("CPI from Alice to Bob", () => {
   });
 });
 ```
-
 
 ## Doing a CPI in one line
 

@@ -43,9 +43,9 @@ pub mod rent {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        let cost_of_empty_acc = rent_module::ACCOUNT_STORAGE_OVERHEAD as f64 * 
+        let cost_of_empty_acc = rent_module::ACCOUNT_STORAGE_OVERHEAD as f64 *
                                 rent_module::DEFAULT_LAMPORTS_PER_BYTE_YEAR as f64 *
-                                rent_module::DEFAULT_EXEMPTION_THRESHOLD; 
+                                rent_module::DEFAULT_EXEMPTION_THRESHOLD;
 
         msg!("cost to create an empty account: {}", cost_of_empty_acc);
         // 890880
@@ -71,15 +71,15 @@ pub mod rent {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        let cost_of_empty_acc = rent_module::ACCOUNT_STORAGE_OVERHEAD as f64 * 
+        let cost_of_empty_acc = rent_module::ACCOUNT_STORAGE_OVERHEAD as f64 *
                                 rent_module::DEFAULT_LAMPORTS_PER_BYTE_YEAR as f64 *
                                 rent_module::DEFAULT_EXEMPTION_THRESHOLD;
 
         msg!("cost to create an empty account: {}", cost_of_empty_acc);
         // 890,880 lamports
-        
-        let cost_for_32_bytes = cost_of_empty_acc + 
-                                32 as f64 * 
+
+        let cost_for_32_bytes = cost_of_empty_acc +
+                                32 as f64 *
                                 rent_module::DEFAULT_LAMPORTS_PER_BYTE_YEAR as f64 *
                                 rent_module::DEFAULT_EXEMPTION_THRESHOLD;
 
@@ -158,7 +158,7 @@ pub struct IncreaseAccountSize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 
@@ -174,7 +174,7 @@ pub struct Initialize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 

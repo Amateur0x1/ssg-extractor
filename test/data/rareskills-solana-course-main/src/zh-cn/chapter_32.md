@@ -9,6 +9,7 @@
 以下代码是一个初始化带有`u64`字段`x`的账户`Storage`并在初始化时将值 9 存储在其中的基本 Solana 程序：
 
 Typescript 代码:
+
 ```
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
@@ -44,6 +45,7 @@ describe("data-holder", () => {
   });
 });
 ```
+
 测试将打印出 PDA 的地址，我们将很快引用这个地址：
 
 ![图 1：PDA 地址的终端输出](https://static.wixstatic.com/media/706568_78de30cddc5c48cf851a6c6e3deb73f4~mv2.png)
@@ -93,6 +95,7 @@ let data_struct: Storage =
 现在让我们在一个新文件夹中创建一个单独的 Anchor 项目 `anchor new data_reader`。
 
 以下是完整的 Rust 代码：
+
 ```
 use anchor_lang::prelude::*;
 
@@ -177,15 +180,10 @@ describe("data-reader", () => {
 要测试读取另一个账户的数据：
 
 1. 运行`solana-test-validator`上的`data_holder`测试。
-    
 2. 复制并粘贴`Storage`账户的公钥
-    
 3. 将该公钥放入`data_reader`测试的`otherStorageAddress`中
-    
 4. 在另一个 Shell 中运行 Solana 日志
-    
 5. 运行`data_reader`的测试以读取数据。
-    
 
 在 Solana 日志中应该看到以下内容：
 

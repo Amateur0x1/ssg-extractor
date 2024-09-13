@@ -17,10 +17,10 @@ pub fn boaty_mc_boatface(ctx: Context<Initialize>) -> Result<()> {
 现在将测试更改为以下内容：
 
 ```js
-it("Call boaty mcboatface", async () => {
+it('Call boaty mcboatface', async () => {
   // Add your test here.
   const tx = await program.methods.boatyMcBoatface().rpc();
-  console.log("Your transaction signature", tx);
+  console.log('Your transaction signature', tx);
 });
 ```
 
@@ -83,16 +83,18 @@ pub fn sub(ctx: Context<Initialize>, a: u64, b: u64) -> Result<()> {
 并将单元测试更改为以下内容：
 
 ```js
-it("Should add", async () => {
-  const tx = await program.methods.add(new anchor.BN(1), new anchor.BN(2)).rpc();
-  console.log("Your transaction signature", tx);
+it('Should add', async () => {
+  const tx = await program.methods
+    .add(new anchor.BN(1), new anchor.BN(2))
+    .rpc();
+  console.log('Your transaction signature', tx);
 });
 
-it("Should sub", async () => {
-  const tx = await program.methods.sub(
-	new anchor.BN(10),
-	new anchor.BN(3)).rpc();
-  console.log("Your transaction signature", tx);
+it('Should sub', async () => {
+  const tx = await program.methods
+    .sub(new anchor.BN(10), new anchor.BN(3))
+    .rpc();
+  console.log('Your transaction signature', tx);
 });
 ```
 

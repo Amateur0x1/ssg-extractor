@@ -54,10 +54,10 @@ pub struct Initialize<'info> {
               seeds=[&key.to_le_bytes().as_ref()],
               bump)]
     val: Account<'info, Val>,
-    
+
     #[account(mut)]
     signer: Signer<'info>,
-    
+
     system_program: Program<'info, System>,
 }
 
@@ -227,10 +227,10 @@ pub struct Initialize<'info> {
               seeds=[&key1.to_le_bytes().as_ref(), &key2.to_le_bytes().as_ref()], // 2 seeds
               bump)]
     val: Account<'info, Val>,
-    
+
     #[account(mut)]
     signer: Signer<'info>,
-    
+
     system_program: Program<'info, System>,
 }
 

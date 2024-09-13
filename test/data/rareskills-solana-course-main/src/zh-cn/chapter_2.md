@@ -76,11 +76,12 @@ pub fn initialize(ctx: Context<Initialize>,
 现在我们需要更改`./tests/day2.ts`中的测试
 
 ```js
-it("Is initialized!", async () => {
+it('Is initialized!', async () => {
   // Add your test here.
   const tx = await program.methods
-    .initialize(new anchor.BN(777), new anchor.BN(888)).rpc();
-  console.log("Your transaction signature", tx);
+    .initialize(new anchor.BN(777), new anchor.BN(888))
+    .rpc();
+  console.log('Your transaction signature', tx);
 });
 ```
 
@@ -108,12 +109,12 @@ pub fn initialize(ctx: Context<Initialize>,
 并更改测试
 
 ```js
-it("Is initialized!", async () => {
+it('Is initialized!', async () => {
   // Add your test here.
   const tx = await program.methods
-    .initialize(
-       new anchor.BN(777), new anchor.BN(888), "hello").rpc();
-    console.log("Your transaction signature", tx);
+    .initialize(new anchor.BN(777), new anchor.BN(888), 'hello')
+    .rpc();
+  console.log('Your transaction signature', tx);
 });
 ```
 
@@ -144,16 +145,20 @@ pub fn array(ctx: Context<Initialize>,
 并将单元测试更新如下：
 
 ```js
-it("Is initialized!", async () => {
+it('Is initialized!', async () => {
   // Add your test here.
-  const tx = await program.methods.initialize(new anchor.BN(777), new anchor.BN(888), "hello").rpc();
-  console.log("Your transaction signature", tx);
+  const tx = await program.methods
+    .initialize(new anchor.BN(777), new anchor.BN(888), 'hello')
+    .rpc();
+  console.log('Your transaction signature', tx);
 });
 
 // added this test
-it("Array test", async () => {
-  const tx = await program.methods.array([new anchor.BN(777), new anchor.BN(888)]).rpc();
-  console.log("Your transaction signature", tx);
+it('Array test', async () => {
+  const tx = await program.methods
+    .array([new anchor.BN(777), new anchor.BN(888)])
+    .rpc();
+  console.log('Your transaction signature', tx);
 });
 ```
 

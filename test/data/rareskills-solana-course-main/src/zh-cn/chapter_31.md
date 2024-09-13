@@ -54,17 +54,17 @@ use anchor_lang::prelude::*;
 declare_id!("ETnqC8mvPRyUVXyXoph22EQ1GS5sTs1zndkn5eGMYWfs");
 
 #[program]
-pub mod account_types {    
-	use super::*;   
+pub mod account_types {
+	use super::*;
 
-	pub fn foo(ctx: Context<Foo>) -> Result<()> {        
-		// we don't do anything with the account SomeAccount        
-		Ok(())    
+	pub fn foo(ctx: Context<Foo>) -> Result<()> {
+		// we don't do anything with the account SomeAccount
+		Ok(())
 		}
 }
 
 #[derive(Accounts)]
-pub struct Foo<'info> {    
+pub struct Foo<'info> {
 	some_account: Account<'info, SomeAccount>,
 }
 
@@ -80,44 +80,44 @@ import { Program } from "@coral-xyz/anchor";
 import { AccountTypes } from "../target/types/account_types";
 
 describe("account_types", () => {
-	async function airdropSol(publicKey, amount) {    
+	async function airdropSol(publicKey, amount) {
 		let airdropTx = await anchor
 			.getProvider()
 			.connection.requestAirdrop(
-				publicKey, 
+				publicKey,
 				amount * anchor.web3.LAMPORTS_PER_SOL
-			);  
-  
-		await confirmTransaction(airdropTx);  
-	}  
+			);
 
-	async function confirmTransaction(tx) {    
+		await confirmTransaction(airdropTx);
+	}
+
+	async function confirmTransaction(tx) {
 		const latestBlockHash = await anchor
 			.getProvider()
 			.connection.getLatestBlockhash();
-   
+
 		await anchor
 			.getProvider()
-			.connection.confirmTransaction({      
-				blockhash: latestBlockHash.blockhash,      	
-				lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,      
-				signature: tx,    
-		});  
-	}  
+			.connection.confirmTransaction({
+				blockhash: latestBlockHash.blockhash,
+				lastValidBlockHeight: latestBlockHash.lastValidBlockHeight,
+				signature: tx,
+		});
+	}
 
-// Configure the client to use the local cluster.  
-anchor.setProvider(anchor.AnchorProvider.env());  
+// Configure the client to use the local cluster.
+anchor.setProvider(anchor.AnchorProvider.env());
 
-const program = anchor.workspace.AccountTypes as Program<AccountTypes>;  
+const program = anchor.workspace.AccountTypes as Program<AccountTypes>;
 
-it("Wrong owner with Account", async () => {    
-	const newKeypair = anchor.web3.Keypair.generate();    
-	await airdropSol(newKeypair.publicKey, 10);    
+it("Wrong owner with Account", async () => {
+	const newKeypair = anchor.web3.Keypair.generate();
+	await airdropSol(newKeypair.publicKey, 10);
 
 	await program.methods
 		.foo()
 		.accounts({someAccount: newKeypair
-		.publicKey}).rpc();  
+		.publicKey}).rpc();
 	});
 });
 ```
@@ -142,19 +142,19 @@ use anchor_lang::prelude::*;
 declare_id!("ETnqC8mvPRyUVXyXoph22EQ1GS5sTs1zndkn5eGMYWfs");
 
 #[program]
-pub mod account_types {    
-	use super::*;    
-	
-	pub fn foo(ctx: Context<Foo>) -> Result<()> {        
-		let data = &ctx.accounts.some_account.try_borrow_data()?;        
-		msg!("{:?}", data);        
-		Ok(())    
+pub mod account_types {
+	use super::*;
+
+	pub fn foo(ctx: Context<Foo>) -> Result<()> {
+		let data = &ctx.accounts.some_account.try_borrow_data()?;
+		msg!("{:?}", data);
+		Ok(())
 	}
 }
 
 #[derive(Accounts)]
-pub struct Foo<'info> {    
-	/// CHECK: we are just printing the data    
+pub struct Foo<'info> {
+	/// CHECK: we are just printing the data
 	some_account: AccountInfo<'info>,
 }
 ```
@@ -166,40 +166,40 @@ import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { AccountTypes } from "../target/types/account_types";
 
-describe("account_types", () => {  
-	const wallet = anchor.workspace.AccountTypes.provider.wallet;  
-	
-	// Configure the client to use the local cluster.  
-	anchor.setProvider(anchor.AnchorProvider.env());  
+describe("account_types", () => {
+	const wallet = anchor.workspace.AccountTypes.provider.wallet;
 
-	const program = anchor.workspace.AccountTypes as Program<AccountTypes>;  
-	it("Load account with accountInfo", async () => {    
-	// CREATE AN ACCOUNT NOT OWNED BY THE PROGRAM    
-	const newKeypair = anchor.web3.Keypair.generate();    
-	const tx = new anchor.web3.Transaction().add(      
-		anchor.web3.SystemProgram.createAccount({        
-			fromPubkey: wallet.publicKey,        
-	 		newAccountPubkey: newKeypair.publicKey,        
-			space: 16,        
-			lamports: await anchor          
-				.getProvider()          				
+	// Configure the client to use the local cluster.
+	anchor.setProvider(anchor.AnchorProvider.env());
+
+	const program = anchor.workspace.AccountTypes as Program<AccountTypes>;
+	it("Load account with accountInfo", async () => {
+	// CREATE AN ACCOUNT NOT OWNED BY THE PROGRAM
+	const newKeypair = anchor.web3.Keypair.generate();
+	const tx = new anchor.web3.Transaction().add(
+		anchor.web3.SystemProgram.createAccount({
+			fromPubkey: wallet.publicKey,
+	 		newAccountPubkey: newKeypair.publicKey,
+			space: 16,
+			lamports: await anchor
+				.getProvider()
 				.connection
-				.getMinimumBalanceForRentExemption(32),        		
-			programId: program.programId,      
-		})    
-	);    
+				.getMinimumBalanceForRentExemption(32),
+			programId: program.programId,
+		})
+	);
 
-	await anchor.web3.sendAndConfirmTransaction(      
-		anchor.getProvider().connection,      
-		tx,      
-		[wallet.payer, newKeypair]    
-	);    
+	await anchor.web3.sendAndConfirmTransaction(
+		anchor.getProvider().connection,
+		tx,
+		[wallet.payer, newKeypair]
+	);
 
-	// READ THE DATA IN THE ACCOUNT    
-	await program.methods      
-		.foo()      
-		.accounts({ someAccount: newKeypair.publicKey })      
-		.rpc();  
+	// READ THE DATA IN THE ACCOUNT
+	await program.methods
+		.foo()
+		.accounts({ someAccount: newKeypair.publicKey })
+		.rpc();
 	});
 });
 ```
@@ -226,23 +226,23 @@ use anchor_lang::prelude::*;
 declare_id!("ETnqC8mvPRyUVXyXoph22EQ1GS5sTs1zndkn5eGMYWfs");#
 
 [program]
-pub mod account_types {    
-	use super::*;    
-	pub fn hello(ctx: Context<Hello>) -> Result<()> {        
-		let lamports = ctx.accounts.signer.lamports();        
+pub mod account_types {
+	use super::*;
+	pub fn hello(ctx: Context<Hello>) -> Result<()> {
+		let lamports = ctx.accounts.signer.lamports();
 		let address = &ctx.accounts
 			.signer
-			.signer_key().unwrap();        
+			.signer_key().unwrap();
 		msg!(
-			"hello {:?} you have {} lamports", 
-			address, 
+			"hello {:?} you have {} lamports",
+			address,
 			lamports
-		);        
-		Ok(())    
+		);
+		Ok(())
 }}
 
 #[derive(Accounts)]
-pub struct Hello<'info> {    
+pub struct Hello<'info> {
 	pub signer: Signer<'info>,
 }
 ```
@@ -254,13 +254,13 @@ import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { AccountTypes } from "../target/types/account_types";
 
-describe("account_types", () => {  
-	anchor.setProvider(anchor.AnchorProvider.env()); 
- 
-	const program = anchor.workspace.AccountTypes as Program<AccountTypes>;  
+describe("account_types", () => {
+	anchor.setProvider(anchor.AnchorProvider.env());
 
-	it("Wrong owner with Account", async () => {    
-		await program.methods.hello().rpc();  
+	const program = anchor.workspace.AccountTypes as Program<AccountTypes>;
+
+	it("Wrong owner with Account", async () => {
+		await program.methods.hello().rpc();
 	});
 });
 ```

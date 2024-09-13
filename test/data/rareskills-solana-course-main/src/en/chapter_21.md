@@ -69,7 +69,7 @@ This serves as an important safety check.
 
 **If a malicious user crafts an account the program did not create and then passes it to the Solana program, and the Solana program blindly trusts the data in the account, critical errors may occur.**
 
-For example, if the program is a bank, and the account is storing how much balance a user has, then a hacker could supply a *different* account with an artificially higher balance than they actually have.
+For example, if the program is a bank, and the account is storing how much balance a user has, then a hacker could supply a _different_ account with an artificially higher balance than they actually have.
 
 To pull off this hack, however, the user would have to create the false account in a separate transaction, then pass it to the Solana program. However, the Anchor framework checks behind the scenes to see if the account is not owned by the program, and rejects reading the account.
 
@@ -77,7 +77,7 @@ To pull off this hack, however, the user would have to create the false account 
 
 **Important:** `AccountInfo` and `UncheckedAccount` are aliases for each other and `AccountInfo` has the same security considerations.
 
-In our case, we are passing in accounts that are certainly not owned by the program — we want to check the balance of an *arbitrary* account. Therefore, we must be certain that no critical logic can be tampered with with this safety check removed.
+In our case, we are passing in accounts that are certainly not owned by the program — we want to check the balance of an _arbitrary_ account. Therefore, we must be certain that no critical logic can be tampered with with this safety check removed.
 
 In our case, we are just logging the balance to the console, but most real-world use cases will have more complex logic.
 
@@ -98,7 +98,7 @@ pub struct Counter {
 }
 ```
 
-In our case however, we are not reading the data from the account — we are only reading the balance. This is similar to how this similar to how we can read the balance of an Ethereum address but not read any of it’s code. Since we do *not* want to deserialize the data, we don’t supply an `#[account]` struct.
+In our case however, we are not reading the data from the account — we are only reading the balance. This is similar to how this similar to how we can read the balance of an Ethereum address but not read any of it’s code. Since we do _not_ want to deserialize the data, we don’t supply an `#[account]` struct.
 
 ## Not all the SOL in an account is spendable
 

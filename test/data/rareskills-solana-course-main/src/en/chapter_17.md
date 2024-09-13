@@ -63,7 +63,7 @@ pub struct MyStorage {
 }
 ```
 
-**Exercise:** Modify the test to call `set()` with the argument `170`. This is the value for `x` in `MyStorage` that we are trying to persist. You need to call  `set()` after `initialize()`. Don't forget to make `170` a bignumber.
+**Exercise:** Modify the test to call `set()` with the argument `170`. This is the value for `x` in `MyStorage` that we are trying to persist. You need to call `set()` after `initialize()`. Don't forget to make `170` a bignumber.
 
 ## The set() function explained
 

@@ -18,7 +18,7 @@ Ethereum charges different prices for different op codes depending on how long t
 
 ## What to do when you don’t have enough compute units
 
-When performing heavy computational operations that cannot be done below the limit, the traditional strategy is to “save your work” and do it in multiple transactions. 
+When performing heavy computational operations that cannot be done below the limit, the traditional strategy is to “save your work” and do it in multiple transactions.
 
 The “save your work” part needs to be put into permanent storage, which is not something we’ve covered yet. This is similar to if you were trying to iterate over a massive loop in Ethereum; you’d have a storage variable for the index you left off at, and a storage variable saving the computation done up to that point.
 
@@ -30,7 +30,7 @@ However, unlike EVM chains, the computational resources used in a transaction do
 
 In addition to compute units, the number of [signers for the Solana transaction](https://www.rareskills.io/post/msg-sender-solana) affects the compute unit cost. From the Solana [docs](https://docs.solana.com/developing/intro/transaction_fees#transaction-fee-calculation):
 
-*"So right now, transaction fees are solely determined by the number of signatures that need to be verified in a transaction. The only limit on the number of signatures in a transaction is the max size of transaction itself. Each signature (64 bytes) in a transaction (max 1232 bytes) must reference a unique public key (32 bytes) so a single transaction could contain as many as 12 signatures (not sure why you would do that)."*
+_"So right now, transaction fees are solely determined by the number of signatures that need to be verified in a transaction. The only limit on the number of signatures in a transaction is the max size of transaction itself. Each signature (64 bytes) in a transaction (max 1232 bytes) must reference a unique public key (32 bytes) so a single transaction could contain as many as 12 signatures (not sure why you would do that)."_
 
 We can see this in action with this little example. Start with an empty Solana program like so:
 
@@ -93,7 +93,7 @@ describe("compute_unit", () => {
 });
 ```
 
-*Note: In JavaScript, the "n" at the end of a number means it is a `BigInt`.*
+_Note: In JavaScript, the "n" at the end of a number means it is a `BigInt`._
 
 Run: `solana logs` also if you don’t already have it running.
 
@@ -238,7 +238,7 @@ In a nutshell, eBPF allows execution of arbitrary eBPF bytecode within the kerne
 - creation of a process
 - creation of a thread
 - cpu instruction invocation
-- supports up to 64 bits (that’s why solana has a max uint type of u64) 
+- supports up to 64 bits (that’s why solana has a max uint type of u64)
 
 You can think of it as javascript but for the kernel. Javascript performs actions on the browser when an event is emitted, eBPF does something very similar for when events are emitted within the kernel, e.g when a syscall is executed.
 

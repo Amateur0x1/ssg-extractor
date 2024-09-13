@@ -47,7 +47,7 @@ pub struct Initialize<'info> {
               seeds = [],
               bump)]
     pub my_storage: Account<'info, MyStorage>,
-    
+
     #[account(mut)]
     pub signer: Signer<'info>,
 
@@ -62,9 +62,9 @@ pub struct MyStorage {
 
 以下是 Typescript 单元测试，用于：
 
-1) 初始化账户
-2) 将 `170` 写入存储
-3) 使用 `fetch` 函数读取值：
+1. 初始化账户
+2. 将 `170` 写入存储
+3. 使用 `fetch` 函数读取值：
 
 ```
 import * as anchor from "@coral-xyz/anchor";
@@ -81,10 +81,10 @@ describe("basic_storage", () => {
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
 
     console.log("the storage account address is", myStorage.toBase58());
- 
+
     await program.methods.initialize().accounts({myStorage: myStorage}).rpc();
     await program.methods.set(new anchor.BN(170)).accounts({myStorage: myStorage}).rpc();
-  
+
 		// ***********************************
 		// *** NEW CODE TO READ THE STRUCT ***
 		// ***********************************
@@ -153,7 +153,7 @@ pub struct Initialize<'info> {
 #[derive(Accounts)]
 pub struct SetFlag<'info> {
     #[account(mut)]
-    true_or_false: Account<'info, TrueOrFalse>, 
+    true_or_false: Account<'info, TrueOrFalse>,
 }
 
 #[account]
@@ -221,11 +221,11 @@ describe("read", () => {
     const otherIdl = JSON.parse(
         require("fs").readFileSync("../other_program/target/idl/other_program.json", "utf8")
     );
-    
+
     const otherProgram = new anchor.Program(otherIdl, otherProgramId);
 
     const seeds = []
-    const [trueOrFalseAcc, _bump] = 
+    const [trueOrFalseAcc, _bump] =
 	    anchor.web3.PublicKey.findProgramAddressSync(seeds, otherProgramId);
     let otherStorageStruct = await otherProgram.account.trueOrFalse.fetch(trueOrFalseAcc);
 

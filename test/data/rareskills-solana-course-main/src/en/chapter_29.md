@@ -8,7 +8,7 @@ Newcomers to Solana are frequently confused by the distinction between an “own
 
 Only programs can write data to accounts — specifically, only to accounts they own. A program cannot write data to arbitrary accounts.
 
-Programs of course cannot spontaneously write data to accounts. They need to receive an instruction to do so from a wallet. However, programs will generally only accept write instructions for a particular account from a privileged wallet: the *authority*.
+Programs of course cannot spontaneously write data to accounts. They need to receive an instruction to do so from a wallet. However, programs will generally only accept write instructions for a particular account from a privileged wallet: the _authority_.
 
 An owner of an account is a program. An authority is a wallet. An authority sends a transaction to a program and that program can write to the account.
 
@@ -62,11 +62,11 @@ When we look at the metadata of the storage account, we see the program is the o
 
 ## The owner in Solana is very different from the owner in Solidity
 
-In Solidity, we usually refer to the owner as a special address with admin privileges over the smart contract. The “owner” is not a concept that exists at the Ethereum runtime level, it is a design pattern applied to Solidity contracts. An owner in Solana is much more fundamental. In Ethereum, a smart contract can only write to its own storage slots. Imagine we had a mechanism to allow an Ethereum smart contract to be able to write to some other storage slot. In Solana terms, it would become the *owner* or those storage slots.
+In Solidity, we usually refer to the owner as a special address with admin privileges over the smart contract. The “owner” is not a concept that exists at the Ethereum runtime level, it is a design pattern applied to Solidity contracts. An owner in Solana is much more fundamental. In Ethereum, a smart contract can only write to its own storage slots. Imagine we had a mechanism to allow an Ethereum smart contract to be able to write to some other storage slot. In Solana terms, it would become the _owner_ or those storage slots.
 
 ## Authority can mean who deployed a contract and who can send write transactions for a particular account
 
-An *authority* can be a construct at the program level. In our tutorial on [Anchor signers](https://www.rareskills.io/post/anchor-signer), we made a program where Alice could deduct points from her account to transfer to someone else. To know that only Alice can send a deduction transaction for that account, we stored her address in the account:
+An _authority_ can be a construct at the program level. In our tutorial on [Anchor signers](https://www.rareskills.io/post/anchor-signer), we made a program where Alice could deduct points from her account to transfer to someone else. To know that only Alice can send a deduction transaction for that account, we stored her address in the account:
 
 ```
 #[account]

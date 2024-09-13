@@ -9,7 +9,7 @@ contract Day2 {
 
 	event Result(uint256);
 	event Who(string, address);
-	
+
 	function doSomeMath(uint256 a, uint256 b) public {
 		uint256 result = a + b;
 		emit Result(result);
@@ -167,9 +167,9 @@ And we run the tests again and view the logs to see the array output:
 
 ### Floating point math
 
-Solana has some, although limited, native support for floating point operations. 
+Solana has some, although limited, native support for floating point operations.
 
-However, it’s best to avoid floating point operations because of how computationally intensive they are (we will see an example of this later). Note that Solidity has *no* native support for floating point operations.
+However, it’s best to avoid floating point operations because of how computationally intensive they are (we will see an example of this later). Note that Solidity has _no_ native support for floating point operations.
 
 Read more about the limitations of using floats [here](https://docs.solana.com/developing/on-chain-programs/limitations#float-rust-types-support).
 

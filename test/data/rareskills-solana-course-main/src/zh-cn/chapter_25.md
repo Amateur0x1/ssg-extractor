@@ -16,7 +16,7 @@
 
 ```
 use anchor_lang::prelude::*;
-use std::mem::size_of; 
+use std::mem::size_of;
 
 declare_id!("4wLnxvLwgXGT4eNg3D456K6Fxa1RieaUdERSPQ3WEpuV");
 
@@ -82,8 +82,6 @@ describe("keypair_vs_pda", () => {
 如果账户的地址是从程序的地址派生而来的，即在 `findProgramAddressSync(seeds, program.programId)` 中的 `programId`，那么该账户就是程序派生地址（PDA）。它也是 `seeds` 的一个函数。
 
 具体来说，我们知道它是一个 PDA，因为 `seeds` 和 `bump` 在 `init` 宏中存在。
-
-  
 
 ## 密钥对账户
 
@@ -154,7 +152,7 @@ describe("keypair_vs_pda", () => {
   const program = anchor.workspace.KeypairVsPda as Program<KeypairVsPda>;
 
   it("Is initialized -- keypair version", async () => {
-		
+
     const newKeypair = anchor.web3.Keypair.generate();
     await airdropSol(newKeypair.publicKey, 1e9); // 1 SOL
 
@@ -263,7 +261,7 @@ describe("keypair_vs_pda", () => {
       }),
     );
     await anchor.web3.sendAndConfirmTransaction(anchor.getProvider().connection, transaction, [newKeypair]);
-    console.log('sent 1 lamport') 
+    console.log('sent 1 lamport')
 
     await program.methods.initializeKeypairAccount()
       .accounts({myKeypairAccount: newKeypair.publicKey})
@@ -328,7 +326,7 @@ describe("keypair_vs_pda", () => {
   const program = anchor.workspace.KeypairVsPda as Program<KeypairVsPda>;
   it("Console log account owner", async () => {
 
-    console.log(`The program address is ${program.programId}`) 
+    console.log(`The program address is ${program.programId}`)
     const newKeypair = anchor.web3.Keypair.generate();
     var recieverWallet = anchor.web3.Keypair.generate();
 

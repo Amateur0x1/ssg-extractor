@@ -20,7 +20,7 @@ Rust function-like macros are identified by the presence of a ! symbol, for exam
 
 In Rust, a regular function (not function-like macro) to print something is `std::io::stdout().write` and it only accepts a single byte string as an argument.
 
-*If you want to run the following code, the* [*Rust Playground*](https://play.rust-lang.org/) *is a convenient tool if you don’t want to set up a development environment.*
+_If you want to run the following code, the_ [_Rust Playground_](https://play.rust-lang.org/) _is a convenient tool if you don’t want to set up a development environment._
 
 Let’s use the following example (taken from [here](https://riptutorial.com/rust/example/1415/console-output-without-macros)):
 
@@ -47,7 +47,7 @@ fn main() {
 }
 ```
 
-As such, if you wish to print an arbitrary number of arguments, *you need to write a custom print function to handle each case for each number of arguments — that is extremely inefficient!*
+As such, if you wish to print an arbitrary number of arguments, _you need to write a custom print function to handle each case for each number of arguments — that is extremely inefficient!_
 
 Here is what such code would look like (this is highly not recommended!):
 
@@ -82,7 +82,7 @@ fn main() {
 
 If we look for a pattern in the `print1`, `print2`, `print3` functions, it is simply inserting the arguments into a vector and adding a space in between them, then converting the vector back into a bytes string (a bytes slice to be precise).
 
-Wouldn’t it be nice if we could take a piece of code like `println!` and automatically expand it into a print function that takes exactly as many arguments as we need? 
+Wouldn’t it be nice if we could take a piece of code like `println!` and automatically expand it into a print function that takes exactly as many arguments as we need?
 
 This is what a Rust macro does.
 
@@ -100,7 +100,7 @@ Macros are very handy when supplied by a library, but very tedious to write by h
 
 ## Different kinds of macros in Rust
 
-The example we have given with `println!` is a function-like macro. Rust has other kinds of macros but the other two we care about are the *custom derive macro* and the *attribute-like macro*.
+The example we have given with `println!` is a function-like macro. Rust has other kinds of macros but the other two we care about are the _custom derive macro_ and the _attribute-like macro_.
 
 Let’s look at a fresh program created by anchor:
 

@@ -92,7 +92,7 @@ describe("other_write", () => {
 
     let seeds = [];
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
-    
+
     await program.methods.initialize().accounts({
       myStorage: myStorage,
       signer: newKeypair.publicKey // ** THIS MUST BE EXPLICITLY SPECIFIED **
@@ -242,7 +242,7 @@ describe("other_write", () => {
 
     let seeds = [];
     const [myStorage, _bump] = anchor.web3.PublicKey.findProgramAddressSync(seeds, program.programId);
-    
+
     // ALICE INITIALIZE ACCOUNT
     await program.methods.initialize().accounts({
       myStorage: myStorage,
@@ -297,7 +297,7 @@ pub mod points {
 								 Errors::SignerIsNotAuthority);
         require!(ctx.accounts.from.points >= amount,
                  Errors::InsufficientPoints);
-        
+
         ctx.accounts.from.points -= amount;
         ctx.accounts.to.points += amount;
         Ok(())

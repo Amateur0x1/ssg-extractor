@@ -4,18 +4,15 @@ This Solana course is designed for engineers with a beginner or intermediate bac
 
 [Skip to Course](#solana-course)
 
-
 The difficulty engineers face when learning blockchain programming for the first time is they have to learn a new computation model, learn a new language, and learn a new development framework.
 
 If you have already developed on an Ethereum or Ethereum compatible blockchain, you already have a pretty good idea of the computation model and can focus on the language and the framework instead.
 
-Our goal is to leverage your past experience with Ethereum to learn Solana faster.  It is not necessary for you to start from zero.
+Our goal is to leverage your past experience with Ethereum to learn Solana faster. It is not necessary for you to start from zero.
 
 ## Solana has a different model of how to run a blockchain than Ethereum does, but not too different.
 
 Rather than jump into explaining all the differences, this tutorial attempts to compress key information into the following paradigm:
-
-
 
 <img src="/src/assets/1.svg" alt="Alt text" width="100" height="100" />
 
@@ -29,42 +26,29 @@ And under certain circumstances,
 
 We’re taking this approach because it’s far easier to develop a mental model for something new if you are able to map over concepts from a mental model you already have.
 
-
-
 If you’re like most programmers, Solidity was probably easy to learn for you. It’s nearly one-to-one with Javascript. However, designing smart contracts was probably a challenge because it’s quite unlike other applications.
 
-
-
 We want you to come away with an understanding of how Solana and Ethereum are similar, as well as the key ways in which they differ.
-
-
 
 (Note: We talk about Ethereum often throughout this series, but all the ideas are applicable for other EVM-compatible blockchains, such as Avalanche and Polygon).
 
 ## All blockchains are decentralized state machines
 
-Solana does have a radically different architecture, but it’s fundamentally doing the same thing Ethereum is doing: 
-
-
+Solana does have a radically different architecture, but it’s fundamentally doing the same thing Ethereum is doing:
 
 ![blockchain nodes icon](https://static.wixstatic.com/media/a133f4_870a6a75603e40a7b8aaa7f73dc313bc~mv2.png/v1/fill/w_152,h_120,al_c,q_95,enc_auto/a133f4_870a6a75603e40a7b8aaa7f73dc313bc~mv2.png)
 
-It is a distributed state machine that undergoes transitions based on signed transactions where the cost of  execution is paid in the ecosystem’s native token (ETH for Ethereum, and SOL for Solana).
-
-
+It is a distributed state machine that undergoes transitions based on signed transactions where the cost of execution is paid in the ecosystem’s native token (ETH for Ethereum, and SOL for Solana).
 
 ![solana and ethereum logos](https://static.wixstatic.com/media/a133f4_af6a587fc43444a08974ca01cf7ca265~mv2.png/v1/fill/w_152,h_120,al_c,q_95,enc_auto/solethbooth.png)
 
 Our goal is to leverage your EVM knowledge as a springboard for your Solana development journey.
 
+Consider this analogy:
 
-Consider this analogy: 
+If a frontend web developer and a backend API/Database engineer both decided to learn mobile app development, most engineers would say the frontend web developer has a massive head start over the backend engineer, even though web development and mobile development are not the same field even if the dev experiences can be very similar with some toolchains.
 
-If a frontend web developer and a backend API/Database engineer both decided to learn mobile app development, most engineers would say the frontend web developer has a massive head start over the backend engineer, even though web development and mobile development are not the same field even if the dev experiences can be very similar with some toolchains. 
-
-Using that line of reasoning, we at RareSkills believe that a competent EVM smart contract engineer should be able to pick up Solana faster than an engineer who hasn’t programmed a blockchain before. 
-
-
+Using that line of reasoning, we at RareSkills believe that a competent EVM smart contract engineer should be able to pick up Solana faster than an engineer who hasn’t programmed a blockchain before.
 
 This course is designed to lean into that advantage.
 
@@ -72,24 +56,17 @@ This course is designed to lean into that advantage.
 
 If you look at our outline, you’ll see that it seems like we cover more intermediate subjects (by Solidity standards) like gas usage before we cover more fundamental things (like how to update storage variables). This is by design.
 
-
-
 ### Start with the EVM's equivalent in Solana
 
 We want to lead with the topics where we can lean on a one-to-one mapping from a concept in Ethereum. We assume you know storage is an important subject and can wait a little bit before we dive into it.
-
-
 
 ### Ease your transition with bite-sized exercises
 
 It’s already going to feel awkward using a new framework. Giving you a bunch of bite-sized exercises that rely on a familiar mental model will ease the transition. Using both a new framework and a new mental model at the same time is a turn-off. We want you to experience a lot of small victories early on so you can hit the more unfamiliar aspects with some momentum.
 
-
 ### An active learning journey
 
 We have included exercises throughout the tutorial, labeled with the bold word **Exercise**. These will be hands-on applications of the knowledge you just gained. **You should do them! Active learning always beats passive reading.**
-
-
 
 ### We expect you’re familiar with Solidity
 
@@ -123,11 +100,12 @@ Please note that the code in this article is MIT licensed, but copying, duplicat
 
 We would like to thank [Faybian Byrd](https://www.linkedin.com/in/faybianbyrd/), Devtooligan, Abhi Gulati, for their careful review and feedback of this work.
 
-
 ## Solana Course
 
 ### MODULE 1 | Introductory Topics
+
 ---
+
 #### Day 1 [Hello World (and troubleshooting Solana installation)](./chapter_1.md)
 
 #### Day 2 [ Function arguments, math, and arithmetic overflow](./chapter_2.md)
@@ -137,7 +115,6 @@ We would like to thank [Faybian Byrd](https://www.linkedin.com/in/faybianbyrd/),
 #### Day 4 [Solana reverts, errors, and basic access control](./chapter_4.md)
 
 #### Day 5 [Where is the constructor? About anchor deploy](./chapter_5.md)
-
 
 ### MODULE 2 | The minimum Rust you need to know
 
@@ -153,7 +130,6 @@ Day 8-10 are not critical, they only explain some syntax which is likely unfamil
 
 #### Day 10 [Translating Solidity function visibility and contract inheritance to Solana](./chapter_10.md)
 
-
 ### MODULE 3 | Important System-level Information in Solana
 
 #### Day 11 [Block variables in Solana: block.timestamp and block.number and others](./chapter_11.md)
@@ -165,7 +141,6 @@ Day 8-10 are not critical, they only explain some syntax which is likely unfamil
 #### Day 14 [tx.origin, msg.sender, and onlyOwner in Solana](./chapter_14.md)
 
 #### Day 15 [Transaction fees and compute units](./chapter_15.md)
-
 
 ### MODULE 4 | Accounts and Storage in Solana
 

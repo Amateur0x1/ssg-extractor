@@ -69,13 +69,13 @@ Now let’s start to create a Solana program that has functions for basic additi
 ```
 pub fn add(ctx: Context<Initialize>, a: u64, b: u64) -> Result<()> {
   let sum = a + b;
-  msg!("Sum is {}", sum);  
+  msg!("Sum is {}", sum);
 	Ok(())
 }
 
 pub fn sub(ctx: Context<Initialize>, a: u64, b: u64) -> Result<()> {
   let difference = a - b;
-  msg!("Difference is {}", difference);  
+  msg!("Difference is {}", difference);
 	Ok(())
 }
 ```

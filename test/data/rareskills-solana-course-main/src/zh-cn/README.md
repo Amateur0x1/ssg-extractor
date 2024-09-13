@@ -7,7 +7,6 @@
 
 [跳转到课程](#solana-课程)
 
-
 初学者在学习区块链编程时面临的困难是他们必须学习一种新的计算模型、学习一种新的语言和学习一个新的开发框架。
 
 如果你已经在以太坊或兼容以太坊的区块链上开发过，那么你已经对计算模型有了相当好的了解，可以专注于语言和框架。
@@ -45,16 +44,15 @@ Solana 的架构确实有很大不同，但它基本上与以太坊做的事情�
 <img src="https://raw.githubusercontent.com/decert-me/rareskills-solana-course/268c72d70e5d30312e244dbd3c67895e1864c3d7/src/assets/0-2.svg" alt="" width="10" height="120" />
 <img src="https://static.wixstatic.com/media/a133f4_870a6a75603e40a7b8aaa7f73dc313bc~mv2.png/v1/fill/w_152,h_120,al_c,q_95,enc_auto/a133f4_870a6a75603e40a7b8aaa7f73dc313bc~mv2.png" alt="区块链节点图标" width="152" height="120" />
 
-它是一个分布式状态机，根据签名交易进行状态转换，执行的成本是用生态系统的原生代币支付（以太坊为 ETH，Solana 为 SOL）。  
-
+它是一个分布式状态机，根据签名交易进行状态转换，执行的成本是用生态系统的原生代币支付（以太坊为 ETH，Solana 为 SOL）。
 
 <img src="https://raw.githubusercontent.com/decert-me/rareskills-solana-course/268c72d70e5d30312e244dbd3c67895e1864c3d7/src/assets/0-2.svg" alt="" width="10" height="120" />
 <img src="https://static.wixstatic.com/media/a133f4_af6a587fc43444a08974ca01cf7ca265~mv2.png/v1/fill/w_152,h_120,al_c,q_95,enc_auto/solethbooth.png" alt="solana 和 以太坊 logo" width="152" height="120" />
 
 我们的目标是利用你对 EVM 的知识，作为你 Solana 开发之旅的跳板。
 
+> 考虑这个类比：
 
-> 考虑这个类比：   
     如果一个前端 Web 开发人员和一个后端 API/数据库工程师都决定学习移动应用开发，大多数工程师会说前端 Web 开发人员比后端工程师有更大的优势，即使 Web 开发和移动开发并不是同一个领域，即使开发经验可能非常相似，使用一些工具链。
 
 根据这种推理，我们 RareSkills 认为，一个称职的 EVM 智能合约工程师应该能够比一个以前没有编写过区块链的工程师更快地掌握 Solana。
@@ -109,14 +107,15 @@ Rust 是一种庞大的语言，其语法足以超过大多数其他流行语言
 
 我们要感谢 [Faybian Byrd](https://www.linkedin.com/in/faybianbyrd/)、Devtooligan、Abhi Gulati，他们仔细审查并提供了对这项工作的反馈。
 
-
 <img src="https://raw.githubusercontent.com/decert-me/rareskills-solana-course/268c72d70e5d30312e244dbd3c67895e1864c3d7/src/assets/0-5.svg" alt="" width="550" height="36" />
 
 ## Solana 课程
 
 ### 模块 1 | 入门主题
+
 ---
-#### 第 1 天 [Hello World（以及解决 Solana 安装问题）](./chapter_1.md) 
+
+#### 第 1 天 [Hello World（以及解决 Solana 安装问题）](./chapter_1.md)
 
 #### 第 2 天 [函数参数、数学和算术溢出](./chapter_2.md)
 
@@ -125,7 +124,6 @@ Rust 是一种庞大的语言，其语法足以超过大多数其他流行语言
 #### 第 4 天 [Solana 回滚、错误和基本访问控制](./chapter_4.md)
 
 #### 第 5 天 [构造函数在哪里？关于 anchor 部署](./chapter_5.md)
-
 
 ### 模块 2 | 你需要了解的最低限度的 Rust
 
@@ -141,7 +139,6 @@ Rust 是一种庞大的语言，其语法足以超过大多数其他流行语言
 
 #### 第 10 天 [将 Solidity 函数可见性和合约继承翻译为 Solana](./chapter_10.md)
 
-
 ### 模块 3 | Solana 中的重要系统级信息
 
 #### 第 11 天 [Solana 中的区块变量：block.timestamp 和 block.number 等](./chapter_11.md)
@@ -153,7 +150,6 @@ Rust 是一种庞大的语言，其语法足以超过大多数其他流行语言
 #### 第 14 天 [Solana 中的 tx.origin、msg.sender 和 onlyOwner ](./chapter_14.md)
 
 #### 第 15 天 [交易费用和计算单位](./chapter_15.md)
-
 
 ### 模块 4 | Solana 中的账户和存储
 
